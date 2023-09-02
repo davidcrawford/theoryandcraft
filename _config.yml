@@ -22,8 +22,8 @@ title: Theory and Craft
 email: david.crawford@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Applying the theory of computer science to the craft of software engineering
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/theoryandcraft" # the subpath of your site, e.g. /blog
+url: "https://blog.davidcrawford.co" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: dacattac
 github_username:  davidcrawford
 
