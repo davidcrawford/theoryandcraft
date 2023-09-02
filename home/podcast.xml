@@ -1,0 +1,32 @@
+---
+layout: feed
+---
+{% assign episodes = site.posts | where: 'type', 'episode' %}
+{%- if episodes.size > 0 -%}
+    {% for episode in episodes %}
+    <item>
+      <guid isPermaLink="false">{{ episode.guid }}</guid>
+      <title>{{ episode.title }}</title>
+      <description><![CDATA[
+      {{ episode.content }}
+]]></description>
+      <pubDate>{{ episode.date | date: "%a, %e %b %Y %H:%M:%S %z" }}</pubDate>
+      <author>david.crawford@gmail.com (David Crawford and Chris Yang)</author>
+      <link>{{ episode.url | absolute_url }}</link>
+      <content:encoded><![CDATA[
+      {{ episode.content }}
+]]></content:encoded>
+      <enclosure length="{{ episode.length }}" type="audio/mpeg" url="{{ episode.audio_url }}"/>
+      <itunes:title>{{ episode.title }}</itunes:title>
+      <itunes:author>David Crawford and Chris Yang</itunes:author>
+      <itunes:image href="{{ "/assets/img/artwork.jpg" | absolute_url }}"/>
+      <itunes:duration>{{ episode.duration }}</itunes:duration>
+      <itunes:summary>{{ episode.summary }}</itunes:summary>
+      <itunes:subtitle>{{ episode.summary }}</itunes:subtitle>
+      <itunes:keywords>{{ episode.keywords }}</itunes:keywords>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>{{ episode.number }}</itunes:episode>
+    </item>
+    {% endfor %}
+{%- endif -%}
